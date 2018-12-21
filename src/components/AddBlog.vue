@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'add-blog',
   data () {
@@ -61,15 +63,18 @@ export default {
   },
   methods:{
 	  post:function(){
-		  this.$http.post("https://wd6312011985dhueak.wilddogio.com/posts.json",this.blog
-// 		  {
-// // 			  title:this.blog.title,
-// // 			  body:this.blog.content,
-// // 			  userId:1
-// 		  }
-		)
-		  .then(function(data){
+// 		  this.$http.post("https://wd6312011985dhueak.wilddogio.com/posts.json",this.blog
+// // 		  {
+// // // 			  title:this.blog.title,
+// // // 			  body:this.blog.content,
+// // // 			  userId:1
+// // 		  }
+// 		)
+		  // var _this= this
+		  axios.post("/posts.json",this.blog)
+		  .then((data)=>{
 			  // console.log(data);
+			  // _this.submited = true;
 			  this.submited = true;
 		  });
 	  }

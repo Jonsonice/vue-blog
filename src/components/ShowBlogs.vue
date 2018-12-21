@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
   name: 'show-blogs',
@@ -30,14 +31,16 @@ export default {
   created(){
 	  // this.$http.get('http://jsonplaceholder.typicode.com/posts')
 	  // 请求本地文件,在static文件夹内
-	  this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts.json')
-	  .then(function(data){
+	  // this.$http.get('https://wd6312011985dhueak.wilddogio.com/posts.json')
+	  axios.get('/posts.json')
+	  .then((data)=>{
 		  // console.log(data.json());
-		  return data.json();
+		  // return data.json();
 		  // this.blogs = data.body.slice(0,10);
 		  // console.log(this.blogs);
+		  return data.data;
 	  })
-	  .then(function(data){
+	  .then((data)=>{
 		  var blogsArray = [];
 		  for (let key in data){
 			  // console.log(key);

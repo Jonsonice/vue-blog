@@ -17,6 +17,8 @@
 </template>
 
 <script>
+	import axios from 'axios'
+
 	export default {
 		name: "single-blog",
 		data() {
@@ -26,15 +28,17 @@
 			};
 		},
 		created() {
-			this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json")
-				.then(function(data) {
+			// this.$http.get('https://wd6312011985dhueak.wilddogio.com/posts/' + this.id + ".json")
+			axios.get('/posts/' + this.id + ".json")
+				.then((data)=>{
 					// console.log(data);
-					return data.json();
+					// return data.json();
+					this.blog = data.data;
 					// this.blog = data.body;
 				})
-				.then(function(data){
-					this.blog = data;
-				})
+// 				.then((data)=>{
+// 					this.blog = data;
+// 				})
 		},
 		directives: {
 			'rainbow': {
@@ -43,12 +47,14 @@
 				}
 			}
 		},
-		methods:{
-			deleteSingleBlog(){
-				this.$http.delete('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json")
-				.then(response=>{
-					this.$router.push({path:'/'})
-				})
+		methods: {
+			deleteSingleBlog() {
+				axios.delete('/posts/' + this.id + ".json")
+					.then(response => {
+						this.$router.push({
+							path: '/'
+						})
+					})
 			}
 		}
 	}
@@ -62,13 +68,15 @@
 		background: #EEEEEE;
 		border: 1px dotted #aaa;
 	}
-	button{
+
+	button {
 		background: #42B983;
 		color: #EEEEEE;
 		font-size: 18px;
 		cursor: pointer;
 	}
-	a{
+
+	a {
 		text-decoration: none;
 		background: #42B983;
 		color: #EEEEEE;

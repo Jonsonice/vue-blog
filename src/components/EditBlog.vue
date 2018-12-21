@@ -35,7 +35,7 @@
 		<p class="tshow">{{blog.content}}</p>
 		<p>分类：</p>
 			<ul>
-				<li v-for="category in blog.categories" :key="category.id">{{category}}</li>
+				<li v-for="category in blog.categories" :key="category">{{category}}</li>
 			</ul>
 		<p>作者：</p>
 		<p class="tshow">{{blog.author}}</p>
@@ -57,14 +57,14 @@ export default {
   methods:{
 	  fetchData(){
 		  // console.log(this.id);
-		  this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json")
+		  this.$http.get('https://wd6312011985dhueak.wilddogio.com/posts/' + this.id +".json")
 		  .then(response=>{
 			  // console.log(response.body);
 			  this.blog = response.body;
 		  })
 	  },
 	  post:function(){
-		  this.$http.put('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json",this.blog)
+		  this.$http.put('https://wd6312011985dhueak.wilddogio.com/posts/' + this.id +".json",this.blog)
 		  .then(function(data){
 			  // console.log(data);
 			  this.submited = true;

@@ -5,6 +5,10 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import App from './App'
 import Routes from './routes'
+import axios from 'axios'
+
+//全局配置
+axios.defaults.baseURL = 'https://wd6312011985dhueak.wilddogio.com'
 
 Vue.use(VueResource)
 Vue.use(VueRouter)

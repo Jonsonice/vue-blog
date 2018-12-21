@@ -7,7 +7,7 @@
 		<p>作者：{{blog.author}}</p>
 		<p>分类：</p>
 		<ul>
-			<li v-for="category in blog.categories" :key="category.id">
+			<li v-for="category in blog.categories" :key="category">
 				{{category}}
 			</li>
 		</ul>

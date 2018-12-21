@@ -22,6 +22,7 @@ export default {
   name: 'show-blogs',
   data(){
 	  return{
+		  id: this.$route.params.id,
 		  blogs:[],
 		  search:""
 	  }
@@ -46,7 +47,7 @@ export default {
 		  }
 		  // console.log(blogsArray);
 		  this.blogs = blogsArray;
-		  // console.log(this.blogs);
+		  console.log(this.blogs);
 	  })
   },
   computed:{

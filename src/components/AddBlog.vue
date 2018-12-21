@@ -20,7 +20,7 @@
 		</div>
 		<label>作者</label>
 		<select v-model="blog.author">
-			<option v-for="author in authors">{{author}}</option>
+			<option v-for="author in authors" :key="author">{{author}}</option>
 		</select>
 		<button v-on:click.prevent="post">发布文章</button>
 	</form>
@@ -61,7 +61,7 @@ export default {
   },
   methods:{
 	  post:function(){
-		  this.$http.post("https://my-blog-demo-4d172.firebaseio.com/posts.json",this.blog
+		  this.$http.post("https://wd6312011985dhueak.wilddogio.com/posts.json",this.blog
 // 		  {
 // // 			  title:this.blog.title,
 // // 			  body:this.blog.content,

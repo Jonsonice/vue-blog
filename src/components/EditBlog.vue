@@ -20,7 +20,7 @@
 		</div>
 		<label>作者</label>
 		<select v-model="blog.author">
-			<option v-for="author in authors" :key="author.id">{{author}}</option>
+			<option v-for="author in authors" :key="author">{{author}}</option>
 		</select>
 		<button v-on:click.prevent="post">发布文章</button>
 	</form>
@@ -57,14 +57,14 @@ export default {
   methods:{
 	  fetchData(){
 		  // console.log(this.id);
-		  this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json")
+		  this.$http.get('https://wd6312011985dhueak.wilddogio.com/posts/' + this.id +".json")
 		  .then(response=>{
 			  // console.log(response.body);
 			  this.blog = response.body;
 		  })
 	  },
 	  post:function(){
-		  this.$http.put('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json",this.blog)
+		  this.$http.put('https://wd6312011985dhueak.wilddogio.com/posts/' + this.id +".json",this.blog)
 		  .then(function(data){
 			  // console.log(data);
 			  this.submited = true;

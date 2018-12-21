@@ -10,7 +10,7 @@
 		</router-link>
 		<!-- 添加过滤器  {{blog.title | to-uppercase}}-->
 		<article>
-			{{blog.body | snippet}}
+			{{blog.content | snippet}}
 		</article>
 	</div>
   </div>
@@ -31,9 +31,22 @@ export default {
 	  // 请求本地文件,在static文件夹内
 	  this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts.json')
 	  .then(function(data){
-		  // console.log(data);
-		  this.blogs = data.body.slice(0,10);
+		  // console.log(data.json());
+		  return data.json();
+		  // this.blogs = data.body.slice(0,10);
 		  // console.log(this.blogs);
+	  })
+	  .then(function(data){
+		  var blogsArray = [];
+		  for (let key in data){
+			  // console.log(key);
+			  // console.log(data[key]);
+			  data[key].id = key;
+			  blogsArray.push(data[key]);
+		  }
+		  // console.log(blogsArray);
+		  this.blogs = blogsArray;
+		  console.log(this.blogs);
 	  })
   },
   computed:{

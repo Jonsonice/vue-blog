@@ -1,7 +1,14 @@
 <template>
 	<div id="single-blog">
 		<h1 v-rainbow>{{blog.title}}</h1>
-		<article>{{blog.body}}</article>
+		<article>{{blog.content}}</article>
+		<p>作者：{{blog.author}}</p>
+		<p>分类：</p>
+		<ul>
+			<li v-for="category in blog.categories">
+				{{category}}
+			</li>
+		</ul>
 	</div>
 </template>
 
@@ -15,10 +22,14 @@
 			};
 		},
 		created() {
-			this.$http.get('http://jsonplaceholder.typicode.com/posts/' + this.id)
+			this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json")
 				.then(function(data) {
-					// console.log(data);
-					this.blog = data.body;
+					console.log(data);
+					return data.json();
+					// this.blog = data.body;
+				})
+				.then(function(data){
+					this.blog = data;
 				})
 		},
 		directives: {

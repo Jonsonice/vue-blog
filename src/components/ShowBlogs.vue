@@ -3,9 +3,10 @@
 	  <!-- v-theme="'wide'" 传入的值要加''  或者 [ ] -->
 	<h1>文章总览</h1>
 	<div v-for="blog in blogs" class="single-blog" :key="blog.id">
-		<h2 v-rainbow>{{blog.title}}</h2>
+		<h2 v-rainbow>{{blog.id}} . {{blog.title | to-uppercase}}</h2>
+		<!-- 添加过滤器 -->
 		<article>
-			{{blog.body}}
+			{{blog.body | snippet}}
 		</article>
 	</div>
   </div>

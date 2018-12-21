@@ -17,7 +17,7 @@ Vue.directive('rainbow',{
 Vue.directive('theme',{
 	bind(el,binding,vnode){
 		if(binding.value == 'wide'){
-			el.style.maxWidth = "1260px";
+			el.style.maxWidth = "960px";
 		}else if(binding.value == 'narrow'){
 			el.style.maxWidth = "560px";
 		}
@@ -26,6 +26,15 @@ Vue.directive('theme',{
 			el.style.padding = '20px';
 		}
 	}
+})
+
+// 自定义过滤器
+Vue.filter("to-uppercase",function(value){
+	return value.toUpperCase();
+})
+
+Vue.filter("snippet",function(value){
+	return value.slice(0,100) + "...";
 })
 
 /* eslint-disable no-new */

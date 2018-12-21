@@ -6,7 +6,7 @@
 	<div v-for="blog in filtereBlogs" class="single-blog" :key="blog.id">
 		<router-link v-bind:to="'/blog/'+ blog.id">
 			<!-- 绑定拼接的链接 -->
-			<h2 v-rainbow>{{blog.id}} . {{blog.title | to-uppercase}}</h2>
+			<h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
 		</router-link>
 		<!-- 添加过滤器  {{blog.title | to-uppercase}}-->
 		<article>
@@ -29,7 +29,7 @@ export default {
   created(){
 	  // this.$http.get('http://jsonplaceholder.typicode.com/posts')
 	  // 请求本地文件,在static文件夹内
-	  this.$http.get('./../static/posts.json')
+	  this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts.json')
 	  .then(function(data){
 		  // console.log(data);
 		  this.blogs = data.body.slice(0,10);

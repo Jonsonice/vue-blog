@@ -61,11 +61,13 @@ export default {
   },
   methods:{
 	  post:function(){
-		  this.$http.post("http://jsonplaceholder.typicode.com/posts",{
-			  title:this.blog.title,
-			  body:this.blog.content,
-			  userId:1
-		  })
+		  this.$http.post("https://my-blog-demo-4d172.firebaseio.com/posts.json",this.blog
+// 		  {
+// // 			  title:this.blog.title,
+// // 			  body:this.blog.content,
+// // 			  userId:1
+// 		  }
+		)
 		  .then(function(data){
 			  console.log(data);
 			  this.submited = true;

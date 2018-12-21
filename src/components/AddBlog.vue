@@ -1,5 +1,5 @@
 <template>
-  <div class="add-blog">
+  <div id="add-blog">
 	<h2>添加博客</h2>
 	<form v-if="!submited">
 		<label>标题</label>
@@ -29,14 +29,16 @@
 	</div>
 	<div id="preview">
 		<h3>文章总览</h3>
-		<p>标题：{{blog.title}}</p>
+		<p>标题：</p>
+		<p class="tshow">{{blog.title}}</p>
 		<p>内容：</p>
-		<p>{{blog.content}}</p>
+		<p class="tshow">{{blog.content}}</p>
 		<p>分类：</p>
-		<ul>
-			<li v-for="category in blog.categories">{{category}}</li>
-		</ul>
-		<p>作者：{{blog.author}}</p>
+			<ul>
+				<li v-for="category in blog.categories">{{category}}</li>
+			</ul>
+		<p>作者：</p>
+		<p class="tshow">{{blog.author}}</p>
 	</div>
   </div>
 </template>
@@ -75,5 +77,59 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+	#add-blog *{
+		box-sizing: border-box;
+	}
+	#add-blog{
+		margin: 20px auto;
+		max-width: 600px;
+		padding: 20px;
+	}
+	label{
+		display: block;
+		margin: 20px 0 10px;
+	}
+	input[type="text"],textarea{
+		display: block;
+		width: 100%;
+		padding: 8px;
+		border: 1px solid #42B983;
+	}
+	select{
+		width: 20%;
+		border: 1px solid #42B983;
+	}
+	textarea{
+		height: 200px;
+	}
+	#checkbox label{
+		display: inline-block;
+		margin-top: 5px;
+	}
+	#checkbox input{
+		display: inline-block;
+		margin-right: 10px;
+	}
+	button{
+		display: block;
+		margin: 20px 0;
+		background: #42B983;
+		color: #fff;
+		border: 0;
+		border-radius: 10px;
+		padding: 14px;
+		font-size: 18px;
+		cursor: pointer;
+	}
+	#preview{
+		padding: 10px 20px;
+		border: 1px dotted #42B983;
+		margin: 30px 0;
+	}
+	#preview .tshow{
+		font-size: 30px;
+	}
+	h3{
+		margin-top: 10px;
+	}
 </style>

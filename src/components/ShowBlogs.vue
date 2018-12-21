@@ -4,7 +4,10 @@
 	<h1>文章总览</h1>
 	<input type="text" v-model="search" placeholder="搜索" />
 	<div v-for="blog in filtereBlogs" class="single-blog" :key="blog.id">
-		<h2 v-rainbow>{{blog.id}} . {{blog.title | to-uppercase}}</h2>
+		<router-link v-bind:to="'/blog/'+ blog.id">
+			<!-- 绑定拼接的链接 -->
+			<h2 v-rainbow>{{blog.id}} . {{blog.title | to-uppercase}}</h2>
+		</router-link>
 		<!-- 添加过滤器  {{blog.title | to-uppercase}}-->
 		<article>
 			{{blog.body | snippet}}
@@ -80,5 +83,15 @@ export default {
 	margin: 20px 0;
 	box-sizing: border-box;
 	background: #eee;
+	border: 1px dotted #42B983;
+}
+#show-blogs a{
+	color: #444444;
+	text-decoration: none;
+}
+input[type="text"]{
+	padding: 8px;
+	width: 100%;
+	box-sizing: border-box;
 }
 </style>

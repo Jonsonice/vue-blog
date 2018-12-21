@@ -1,6 +1,6 @@
 import ShowBlogs from './components/ShowBlogs'
 import AddBlog from './components/AddBlog'
-
+import SingleBlog from './components/SingleBlog'
 
 
 export default [{
@@ -12,5 +12,10 @@ export default [{
 		path: '/add',
 		name: 'AddBlog',
 		component: AddBlog
+	},
+	{
+		path: '/blog/:id',
+		name: 'SingleBlog',
+		component: SingleBlog
 	}
 ]

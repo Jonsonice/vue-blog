@@ -25,7 +25,7 @@
 		<button v-on:click.prevent="post">添加博客</button>
 	</form>
 	<div v-if="submited">
-		<h3>您的博客发布成功！</h3>
+		<h3>您的文章发布成功！</h3>
 	</div>
 	<div id="preview">
 		<h3>文章总览</h3>

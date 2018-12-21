@@ -1,8 +1,9 @@
 <template>
-  <div id="show-blogs">
+  <div id="show-blogs" v-theme:column="'wide'">
+	  <!-- v-theme="'wide'" 传入的值要加''  或者 [ ] -->
 	<h1>文章总览</h1>
 	<div v-for="blog in blogs" class="single-blog" :key="blog.id">
-		<h2>{{blog.title}}</h2>
+		<h2 v-rainbow>{{blog.title}}</h2>
 		<article>
 			{{blog.body}}
 		</article>

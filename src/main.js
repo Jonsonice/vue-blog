@@ -2,10 +2,12 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueResource from 'vue-resource'
+import VueRouter from 'vue-router'
 import App from './App'
-import router from './router'
+import Routes from './routes'
 
 Vue.use(VueResource)
+Vue.use(VueRouter)
 Vue.config.productionTip = false
 
 // 自定义指令
@@ -39,12 +41,17 @@ Vue.directive('theme',{
 // 	return value.slice(0,100) + "...";
 // })
 
-
+// 创建路由
+const router = new VueRouter({
+	routes: Routes,
+	mode:"history"
+})
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  router:router
 })

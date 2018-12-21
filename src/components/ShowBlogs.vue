@@ -46,7 +46,7 @@ export default {
 		  }
 		  // console.log(blogsArray);
 		  this.blogs = blogsArray;
-		  console.log(this.blogs);
+		  // console.log(this.blogs);
 	  })
   },
   computed:{
@@ -86,7 +86,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #show-blogs{
 	max-width: 800px;
 	margin: 0 auto;

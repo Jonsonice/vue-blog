@@ -1,6 +1,6 @@
 <template>
-  <div id="add-blog">
-	<h2>添加文章</h2>
+  <div id="edit-blog">
+	<h2>编辑文章</h2>
 	<form v-if="!submited">
 		<label>标题</label>
 		<input type="text" v-model="blog.title" required />
@@ -20,7 +20,7 @@
 		</div>
 		<label>作者</label>
 		<select v-model="blog.author">
-			<option v-for="author in authors">{{author}}</option>
+			<option v-for="author in authors" :key="author.id">{{author}}</option>
 		</select>
 		<button v-on:click.prevent="post">发布文章</button>
 	</form>
@@ -35,7 +35,7 @@
 		<p class="tshow">{{blog.content}}</p>
 		<p>分类：</p>
 			<ul>
-				<li v-for="category in blog.categories">{{category}}</li>
+				<li v-for="category in blog.categories" :key="category.id">{{category}}</li>
 			</ul>
 		<p>作者：</p>
 		<p class="tshow">{{blog.author}}</p>
@@ -45,34 +45,34 @@
 
 <script>
 export default {
-  name: 'add-blog',
+  name: 'edit-blog',
   data () {
     return {
-		blog: {
-			title:"",
-			content:"",
-			categories:[],
-			author:""
-		},
-		authors:["Dee","Jon","Hao"],
-		submited:false
-		
-	}
+		id: this.$route.params.id,
+			blog: {},
+			authors:["Dee","Jon","Hao"],
+			submited:false
+		}
   },
   methods:{
+	  fetchData(){
+		  // console.log(this.id);
+		  this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json")
+		  .then(response=>{
+			  // console.log(response.body);
+			  this.blog = response.body;
+		  })
+	  },
 	  post:function(){
-		  this.$http.post("https://my-blog-demo-4d172.firebaseio.com/posts.json",this.blog
-// 		  {
-// // 			  title:this.blog.title,
-// // 			  body:this.blog.content,
-// // 			  userId:1
-// 		  }
-		)
+		  this.$http.put('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json",this.blog)
 		  .then(function(data){
 			  // console.log(data);
 			  this.submited = true;
 		  });
 	  }
+  },
+  created(){
+	  this.fetchData();
   }
 }
 </script>

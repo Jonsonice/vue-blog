@@ -11,11 +11,12 @@
 import AddBlog from './components/AddBlog'
 import ShowBlogs from './components/ShowBlogs'
 import BlogHeader from './components/BlogHeader'
+import EditBlog from './components/EditBlog'
 
 export default {
   name: 'app',
 	components:{
-		AddBlog,ShowBlogs,BlogHeader
+		AddBlog,ShowBlogs,BlogHeader,EditBlog
 	}
 }
 </script>

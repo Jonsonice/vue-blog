@@ -21,7 +21,8 @@ export default {
   },
   created(){
 	  // this.$http.get('http://jsonplaceholder.typicode.com/posts')
-	  this.$http.get('http://jsonplaceholder.typicode.com/posts')
+	  // 请求本地文件,在static文件夹内
+	  this.$http.get('./../static/posts.json')
 	  .then(function(data){
 		  // console.log(data);
 		  this.blogs = data.body.slice(0,10);

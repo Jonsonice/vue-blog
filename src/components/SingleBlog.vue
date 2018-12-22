@@ -24,7 +24,7 @@
 			};
 		},
 		created() {
-			this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json")
+			this.$http.get('https://wd6312011985dhueak.wilddogio.com/posts/' + this.id +".json")
 				.then(function(data) {
 					// console.log(data);
 					return data.json();
@@ -36,7 +36,7 @@
 		},
 		methods:{
 			deleteSingleBlog(){
-				this.$http.delete('https://my-blog-demo-4d172.firebaseio.com/posts/' + this.id +".json")
+				this.$http.delete('https://wd6312011985dhueak.wilddogio.com/posts/' + this.id +".json")
 				.then(response=>{
 					this.$router.push({path:'/'})
 				})

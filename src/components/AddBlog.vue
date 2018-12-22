@@ -61,7 +61,7 @@ export default {
   },
   methods:{
 	  post:function(){
-		  this.$http.post("https://my-blog-demo-4d172.firebaseio.com/posts.json",this.blog
+		  this.$http.post("https://wd6312011985dhueak.wilddogio.com/posts.json",this.blog
 // 		  {
 // // 			  title:this.blog.title,
 // // 			  body:this.blog.content,

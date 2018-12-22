@@ -29,7 +29,7 @@ export default {
   created(){
 	  // this.$http.get('http://jsonplaceholder.typicode.com/posts')
 	  // 请求本地文件,在static文件夹内
-	  this.$http.get('https://my-blog-demo-4d172.firebaseio.com/posts.json')
+	  this.$http.get('https://wd6312011985dhueak.wilddogio.com/posts.json')
 	  .then(function(data){
 		  // console.log(data.json());
 		  return data.json();
